@@ -1,0 +1,130 @@
+{
+  "name": "frontend-react-boilerplate",
+  "version": "1.0.1",
+  "main": "index.js",
+  "author": "Taroko Software",
+  "license": "MIT",
+  "devDependencies": {
+    "allure-commandline": "^1.5.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-react-constant-elements": "^6.23.0",
+    "babel-plugin-transform-react-inline-elements": "^6.22.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chai": "^3.5.0",
+    "chimp": "^0.47.2",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
+    "eslint": "^4.2.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-react": "^7.1.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "identity-obj-proxy": "^3.0.0",
+    "image-webpack-loader": "^3.3.1",
+    "ip": "^1.1.4",
+    "jest-cli": "^20.0.4",
+    "json-server": "^0.11.2",
+    "node-sass": "^4.5.3",
+    "open": "^0.0.5",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-loader": "^2.0.6",
+    "prop-types": "^15.5.10",
+    "react-addons-test-utils": "^15.6.0",
+    "react-test-renderer": "^15.6.1",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-immutable-state-invariant": "^2.0.0",
+    "redux-logger": "^3.0.6",
+    "sass-loader": "^6.0.6",
+    "selenium-standalone": "6.1.0",
+    "style-loader": "^0.18.2",
+    "stylelint": "^8.0.0",
+    "stylelint-webpack-plugin": "^0.9.0",
+    "url-loader": "^0.5.9",
+    "wdio-allure-reporter": "^0.1.2",
+    "wdio-mocha-framework": "^0.5.9",
+    "wdio-selenium-standalone-service": "0.0.8",
+    "wdio-spec-reporter": "^0.0.5",
+    "webdriverio": "^4.6.2",
+    "webpack": "^3.5.6",
+    "webpack-bundle-analyzer": "^2.8.3",
+    "webpack-dev-server": "^2.5.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "scripts": {
+    "dev": "NODE_ENV='development' node server.hot.js",
+    "build": "rm -rf ./dist/* && NODE_ENV='production' webpack -p --config ./configs/webpack.production.js",
+    "watch": "rm -rf ./dist/* && NODE_ENV='development' webpack --watch --config ./configs/webpack.development.js",
+    "test": "NODE_ENV='test' jest --watch --no-cache --coverage",
+    "ci_test": "jest --coverage",
+    "api": "node server.api.js",
+    "e2e": "./node_modules/.bin/wdio ./e2e/wdio.conf.js",
+    "e2e-demo": "./node_modules/.bin/wdio ./e2e/wdio.conf.js --suite demo",
+    "e2e-chimp": "./node_modules/.bin/chimp --mocha --watch --path=e2e/test",
+    "e2e-allure": "allure report generate allure-results",
+    "e2e-report": "allure report open",
+    "e2e-selenium": "selenium-standalone start"
+  },
+  "dependencies": {
+    "jasmine-reporters": "^2.2.0",
+    "lodash": "^4.17.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router": "2.8.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.15.6"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/tests/"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "testRegex": "\\.(spec|e2e|snapshot)\\.js$",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "coverageDirectory": "<rootDir>/tests/__coverage__/",
+    "setupTestFrameworkScriptFile": "<rootDir>/setup-jasmine-env.js",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "coverageReporters": [
+      "json",
+      "html",
+      "text"
+    ],
+    "browser": true,
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "mock-data(.*)": "<rootDir>/mock-data$1",
+      "components(.*)": "<rootDir>/src/components$1",
+      "utils(.*)": "<rootDir>/src/utils$1",
+      "containers(.*)": "<rootDir>/src/containers$1",
+      "reducers(.*)": "<rootDir>/src/reducers$1",
+      "routing(.*)": "<rootDir>/src/routing$1",
+      "^.+\\.(scss|css)$": "identity-obj-proxy"
+    }
+  }
+}
