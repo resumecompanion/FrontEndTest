@@ -37,7 +37,7 @@
     "jest-cli": "^20.0.4",
     "json-server": "^0.11.2",
     "node-sass": "^4.5.3",
-    "open": "^0.0.5",
+    "open": "^6.0.0",
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.6",
     "prop-types": "^15.5.10",
